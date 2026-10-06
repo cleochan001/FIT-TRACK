@@ -1,0 +1,1179 @@
+/* ==============================
+   GLOBAL
+   ============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0b0b0b;
+    color: white;
+    line-height: 1.5;
+}
+
+button,
+input,
+select {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* ==============================
+   NAVIGATION
+   ============================== */
+
+nav {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 7%;
+
+    background: rgba(17, 17, 17, 0.96);
+
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
+
+    border-bottom: 1px solid #222;
+}
+
+nav h2 {
+    font-size: 28px;
+    color: #00ff88;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.nav-links a:hover {
+    color: #00ff88;
+}
+
+.profile-nav-btn {
+    padding: 10px 16px;
+    background: #00ff88;
+    color: #000;
+}
+
+.mobile-menu-btn {
+    display: none;
+}
+
+
+/* ==============================
+   MOBILE MENU
+   ============================== */
+
+.mobile-menu {
+    display: none;
+}
+
+
+/* ==============================
+   HERO
+   ============================== */
+
+.hero {
+    min-height: 650px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 80px 7%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #0b0b0b 15%,
+            rgba(11, 11, 11, 0.72)
+        ),
+        url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1600&q=80");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero-small {
+    color: #00ff88;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(48px, 7vw, 78px);
+    line-height: 0.95;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: #00ff88;
+}
+
+.hero p {
+    max-width: 580px;
+    color: #cccccc;
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+
+/* ==============================
+   BUTTONS
+   ============================== */
+
+button {
+    background: #00ff88;
+    color: #000;
+    border: none;
+
+    padding: 14px 25px;
+
+    font-weight: bold;
+
+    border-radius: 6px;
+
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #00cc6a;
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    background: transparent;
+    color: white;
+    border: 1px solid #444;
+}
+
+.secondary-btn:hover {
+    background: #222;
+    color: #00ff88;
+}
+
+
+/* ==============================
+   SECTIONS
+   ============================== */
+
+section:not(.hero) {
+    padding: 90px 7%;
+}
+
+section h2 {
+    font-size: clamp(30px, 5vw, 42px);
+    margin-bottom: 45px;
+    text-align: center;
+}
+
+
+/* ==============================
+   WORKOUT CATEGORIES
+   ============================== */
+
+.category-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.category-container button {
+    background: #171717;
+    color: white;
+    border: 1px solid #333;
+}
+
+.category-container button:hover {
+    background: #00ff88;
+    color: black;
+}
+
+
+/* ==============================
+   WORKOUT DISPLAY
+   ============================== */
+
+#workoutDisplay {
+    max-width: 1000px;
+    margin: auto;
+
+    background: #171717;
+
+    padding: 35px 45px;
+
+    border-radius: 14px;
+
+    border: 1px solid #292929;
+}
+
+#workoutDisplay > h3 {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 25px;
+}
+
+.empty-workout {
+    text-align: center;
+    padding: 40px 20px;
+    color: #999;
+}
+
+.empty-icon {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+
+/* ==============================
+   EXERCISE LIST
+   ============================== */
+
+.exercise-list {
+    width: 100%;
+}
+
+.exercise-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    padding: 15px 10px;
+
+    gap: 30px;
+
+    border-bottom: 1px solid #2b2b2b;
+}
+
+.exercise-row:last-child {
+    border-bottom: none;
+}
+
+.exercise-row span {
+    flex: 1;
+    min-width: 0;
+
+    text-align: left;
+
+    font-size: 19px;
+}
+
+.exercise-row button {
+    width: 150px;
+    min-width: 150px;
+    flex-shrink: 0;
+}
+
+
+/* ==============================
+   TIMER
+   ============================== */
+
+.timer {
+    max-width: 500px;
+    margin: 50px auto 0;
+
+    background: #111;
+
+    padding: 35px;
+
+    border-radius: 14px;
+
+    text-align: center;
+
+    border: 1px solid #333;
+}
+
+.timer h3 {
+    color: #aaa;
+    letter-spacing: 2px;
+}
+
+#timer {
+    font-size: 75px;
+    font-weight: bold;
+    color: #00ff88;
+    margin: 20px 0;
+}
+
+.timer-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.timer-buttons button {
+    min-width: 100px;
+}
+
+
+/* ==============================
+   CALCULATOR
+   ============================== */
+
+.calculator,
+.goal-calculator {
+    max-width: 500px;
+    margin: auto;
+
+    background: #171717;
+
+    padding: 35px;
+
+    border-radius: 14px;
+
+    border: 1px solid #292929;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    color: #aaa;
+    margin-bottom: 7px;
+}
+
+.calculator input,
+.goal-calculator input,
+.goal-calculator select,
+.profile-info input,
+.profile-info select,
+.login-content input {
+    width: 100%;
+
+    padding: 15px;
+
+    margin-bottom: 15px;
+
+    background: #222;
+
+    border: 1px solid #444;
+
+    color: white;
+
+    border-radius: 6px;
+
+    outline: none;
+}
+
+input:focus,
+select:focus {
+    border-color: #00ff88;
+}
+
+.calculator button,
+.goal-calculator button {
+    width: 100%;
+}
+
+.result-box,
+#calorieResult {
+    margin-top: 25px;
+
+    padding: 18px;
+
+    background: #111;
+
+    border-radius: 8px;
+
+    color: #00ff88;
+
+    text-align: center;
+}
+
+
+/* ==============================
+   GOALS
+   ============================== */
+
+.goals-container {
+    max-width: 1000px;
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 25px;
+}
+
+.goal-form,
+.goal-display {
+    background: #171717;
+
+    padding: 30px;
+
+    border-radius: 14px;
+
+    border: 1px solid #292929;
+}
+
+.goal-form h3,
+.goal-display h3 {
+    margin-bottom: 25px;
+}
+
+.goal-form input,
+.goal-form select {
+    width: 100%;
+
+    padding: 14px;
+
+    margin-bottom: 15px;
+
+    background: #222;
+
+    border: 1px solid #444;
+
+    color: white;
+
+    border-radius: 6px;
+}
+
+.goal-form button {
+    width: 100%;
+}
+
+.no-goal {
+    text-align: center;
+    padding: 45px 20px;
+    color: #777;
+}
+
+.no-goal:first-letter {
+    font-size: 35px;
+}
+
+.goal-card {
+    background: #111;
+
+    border-radius: 10px;
+
+    padding: 25px;
+
+    border: 1px solid #333;
+}
+
+.goal-card h4 {
+    color: #00ff88;
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.goal-card p {
+    color: #aaa;
+    margin-bottom: 10px;
+}
+
+.goal-progress {
+    height: 10px;
+
+    background: #333;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    margin: 20px 0;
+}
+
+.goal-progress-bar {
+    height: 100%;
+
+    background: #00ff88;
+
+    border-radius: 20px;
+
+    transition: width 0.4s;
+}
+
+.goal-percent {
+    color: #00ff88;
+    font-weight: bold;
+}
+
+
+/* ==============================
+   DASHBOARD
+   ============================== */
+
+#dashboard {
+    background: #0b0b0b;
+}
+
+.dashboard-container {
+    max-width: 1100px;
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.dashboard-card {
+    background: #171717;
+
+    padding: 30px 20px;
+
+    border-radius: 14px;
+
+    text-align: center;
+
+    border: 1px solid #292929;
+
+    transition: 0.3s;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    border-color: #00ff88;
+}
+
+.dashboard-icon {
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.dashboard-card h3 {
+    color: #aaa;
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+.dashboard-card p {
+    color: #00ff88;
+    font-size: 38px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.dashboard-card span {
+    color: #777;
+    font-size: 13px;
+}
+
+
+/* ==============================
+   WEEKLY PROGRESS
+   ============================== */
+
+#weeklyProgress {
+    background: #0b0b0b;
+    text-align: center;
+}
+
+.weekly-container {
+    max-width: 900px;
+    margin: auto;
+
+    background: #171717;
+
+    padding: 30px;
+
+    border-radius: 14px;
+
+    border: 1px solid #292929;
+}
+
+.weekly-container > p {
+    color: #888;
+}
+
+.weekly-days {
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+.weekly-day {
+    background: #222;
+
+    padding: 20px 10px;
+
+    border-radius: 10px;
+
+    border: 1px solid #333;
+}
+
+.weekly-day .day-name {
+    display: block;
+
+    color: #aaa;
+
+    font-size: 14px;
+
+    margin-bottom: 10px;
+}
+
+.weekly-day .day-status {
+    display: block;
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+    color: #555;
+}
+
+.weekly-day.completed {
+    border-color: #00ff88;
+}
+
+.weekly-day.completed .day-status {
+    color: #00ff88;
+}
+
+.weekly-summary {
+    margin-top: 25px;
+}
+
+#weeklyCount {
+    color: #00ff88;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+/* ==============================
+   PROGRESS
+   ============================== */
+
+.progress-card {
+    max-width: 350px;
+
+    margin: auto;
+
+    background: #171717;
+
+    padding: 35px;
+
+    text-align: center;
+
+    border-radius: 14px;
+
+    border: 1px solid #292929;
+}
+
+.progress-icon {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.progress-card h3 {
+    margin-bottom: 15px;
+}
+
+#exerciseCount {
+    font-size: 55px;
+    color: #00ff88;
+    font-weight: bold;
+}
+
+.progress-chart-card {
+    max-width: 900px;
+
+    margin: 30px auto 0;
+
+    background: #171717;
+
+    padding: 30px;
+
+    border-radius: 14px;
+
+    border: 1px solid #292929;
+}
+
+.progress-chart-card h3 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.progress-chart {
+    height: 250px;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-around;
+
+    gap: 15px;
+
+    padding: 20px;
+
+    border-bottom: 1px solid #333;
+}
+
+.chart-column {
+    height: 100%;
+
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    align-items: center;
+}
+
+.chart-bar {
+    width: 45px;
+
+    min-height: 5px;
+
+    background: #00ff88;
+
+    border-radius: 6px 6px 0 0;
+
+    transition: height 0.4s;
+}
+
+.chart-value {
+    color: white;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.chart-day {
+    color: #888;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+
+/* ==============================
+   PROFILE / LOGIN MODALS
+   ============================== */
+
+.modal {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.8);
+
+    z-index: 3000;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    position: relative;
+
+    width: 100%;
+    max-width: 450px;
+
+    background: #171717;
+
+    padding: 35px;
+
+    border-radius: 16px;
+
+    border: 1px solid #333;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.close-modal {
+    position: absolute;
+
+    top: 12px;
+    right: 15px;
+
+    background: transparent;
+
+    color: #aaa;
+
+    font-size: 30px;
+
+    padding: 0;
+}
+
+.close-modal:hover {
+    background: transparent;
+    color: white;
+    transform: none;
+}
+
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+
+    margin: 0 auto 15px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #222;
+
+    font-size: 38px;
+
+    border: 2px solid #00ff88;
+}
+
+.modal-content h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.profile-info label {
+    display: block;
+    color: #aaa;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.save-profile-btn {
+    width: 100%;
+    margin-top: 5px;
+}
+
+.logout-btn {
+    width: 100%;
+    margin-top: 10px;
+
+    background: #2a2a2a;
+    color: #ff6666;
+}
+
+.logout-btn:hover {
+    background: #3a2020;
+}
+
+.login-content {
+    text-align: center;
+}
+
+.login-logo {
+    color: #00ff88;
+
+    font-size: 34px;
+
+    font-weight: bold;
+
+    margin-bottom: 10px;
+}
+
+.login-content > p {
+    color: #888;
+    margin-bottom: 25px;
+}
+
+.login-content button {
+    width: 100%;
+}
+
+.login-content small {
+    display: block;
+
+    color: #666;
+
+    margin-top: 15px;
+
+    line-height: 1.5;
+}
+
+
+/* ==============================
+   FOOTER
+   ============================== */
+
+footer {
+    text-align: center;
+
+    padding: 45px 20px;
+
+    background: #111;
+
+    color: #888;
+
+    border-top: 1px solid #222;
+}
+
+footer h3 {
+    color: #00ff88;
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+.footer-copy {
+    margin-top: 15px;
+    font-size: 12px;
+    color: #555;
+}
+
+
+/* ==============================
+   MOBILE
+   ============================== */
+
+@media (max-width: 900px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+
+        background: transparent;
+
+        color: white;
+
+        font-size: 26px;
+
+        padding: 5px;
+    }
+
+    .mobile-menu-btn:hover {
+        background: transparent;
+        color: #00ff88;
+        transform: none;
+    }
+
+    .mobile-menu {
+        position: fixed;
+
+        top: 70px;
+        left: 0;
+        right: 0;
+
+        background: #111;
+
+        z-index: 999;
+
+        padding: 15px;
+
+        border-bottom: 1px solid #333;
+    }
+
+    .mobile-menu.show {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 5px;
+    }
+
+    .mobile-menu a,
+    .mobile-menu button {
+        width: 100%;
+
+        text-align: center;
+
+        padding: 14px;
+
+        text-decoration: none;
+
+        color: white;
+
+        background: #1b1b1b;
+
+        border-radius: 6px;
+    }
+
+    .mobile-menu a:hover {
+        color: #00ff88;
+    }
+
+    .dashboard-container {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .goals-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    section:not(.hero) {
+        padding: 65px 5%;
+    }
+
+    .hero {
+        min-height: 600px;
+        padding: 60px 5%;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .hero-small {
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+
+    #workoutDisplay {
+        padding: 25px 15px;
+    }
+
+    .exercise-row {
+        gap: 12px;
+        padding: 14px 3px;
+    }
+
+    .exercise-row span {
+        font-size: 16px;
+    }
+
+    .exercise-row button {
+        width: 115px;
+        min-width: 115px;
+        padding: 12px 8px;
+    }
+
+    .weekly-days {
+        grid-template-columns:
+            repeat(4, 1fr);
+    }
+
+    .progress-chart {
+        gap: 5px;
+        padding: 10px;
+    }
+
+    .chart-bar {
+        width: 25px;
+    }
+
+    #timer {
+        font-size: 60px;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    nav {
+        padding: 0 5%;
+    }
+
+    nav h2 {
+        font-size: 24px;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-buttons button {
+        width: 100%;
+    }
+
+    .dashboard-container {
+        grid-template-columns: 1fr;
+    }
+
+    .weekly-days {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .exercise-row {
+        gap: 8px;
+    }
+
+    .exercise-row span {
+        font-size: 14px;
+    }
+
+    .exercise-row button {
+        width: 105px;
+        min-width: 105px;
+        padding: 11px 6px;
+        font-size: 13px;
+    }
+
+    .calculator,
+    .goal-calculator,
+    .goal-form,
+    .goal-display,
+    .weekly-container,
+    .progress-chart-card {
+        padding: 22px;
+    }
+
+    .modal-content {
+        padding: 28px 20px;
+    }
+}

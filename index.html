@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="FitTrack - Personal Fitness Tracker"
+    >
+
+    <title>FitTrack - Fitness Tracker</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- ==============================
+     NAVIGATION
+     ============================== -->
+
+<nav>
+
+    <div class="logo">
+        <h2>FitTrack</h2>
+    </div>
+
+
+    <div class="nav-links">
+
+        <a href="#home">Home</a>
+
+        <a href="#workouts">Workouts</a>
+
+        <a href="#bmi">BMI</a>
+
+        <a href="#goals">Goals</a>
+
+        <a href="#dashboard">Dashboard</a>
+
+        <a href="#progress">Progress</a>
+
+        <button
+            class="profile-nav-btn"
+            onclick="openProfile()"
+        >
+            👤 Profile
+        </button>
+
+    </div>
+
+
+    <button
+        class="mobile-menu-btn"
+        onclick="toggleMobileMenu()"
+    >
+        ☰
+    </button>
+
+</nav>
+
+
+<!-- MOBILE MENU -->
+
+<div
+    id="mobileMenu"
+    class="mobile-menu"
+>
+
+    <a href="#home" onclick="closeMobileMenu()">Home</a>
+
+    <a href="#workouts" onclick="closeMobileMenu()">Workouts</a>
+
+    <a href="#bmi" onclick="closeMobileMenu()">BMI</a>
+
+    <a href="#goals" onclick="closeMobileMenu()">Goals</a>
+
+    <a href="#dashboard" onclick="closeMobileMenu()">Dashboard</a>
+
+    <a href="#progress" onclick="closeMobileMenu()">Progress</a>
+
+    <button onclick="openProfile(); closeMobileMenu()">
+        👤 Profile
+    </button>
+
+</div>
+
+
+<!-- ==============================
+     HERO
+     ============================== -->
+
+<section
+    id="home"
+    class="hero"
+>
+
+    <div class="hero-content">
+
+        <p class="hero-small">
+            YOUR PERSONAL FITNESS COMPANION
+        </p>
+
+        <h1>
+            BUILD YOUR<br>
+            <span>STRONGER SELF.</span>
+        </h1>
+
+        <p>
+            Track workouts, monitor your progress,
+            calculate BMI and calories, and stay
+            consistent with your fitness goals.
+        </p>
+
+        <div class="hero-buttons">
+
+            <button
+                onclick="startWorkout()"
+            >
+                START WORKOUT
+            </button>
+
+            <button
+                class="secondary-btn"
+                onclick="openProfile()"
+            >
+                MY PROFILE
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     WORKOUTS
+     ============================== -->
+
+<section id="workouts">
+
+    <h2>Choose Your Workout</h2>
+
+    <div class="category-container">
+
+        <button onclick="showWorkout('Chest')">
+            CHEST
+        </button>
+
+        <button onclick="showWorkout('Back')">
+            BACK
+        </button>
+
+        <button onclick="showWorkout('Legs')">
+            LEGS
+        </button>
+
+        <button onclick="showWorkout('Arms')">
+            ARMS
+        </button>
+
+        <button onclick="showWorkout('Shoulders')">
+            SHOULDERS
+        </button>
+
+        <button onclick="showWorkout('Full Body')">
+            FULL BODY
+        </button>
+
+    </div>
+
+
+    <div id="workoutDisplay">
+
+        <div class="empty-workout">
+
+            <div class="empty-icon">
+                🏋️
+            </div>
+
+            <h3>
+                Select a workout
+            </h3>
+
+            <p>
+                Choose a category above to begin.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- REST TIMER -->
+
+    <div class="timer">
+
+        <h3>
+            REST TIMER
+        </h3>
+
+        <div id="timer">
+            01:00
+        </div>
+
+        <div class="timer-buttons">
+
+            <button onclick="startTimer()">
+                START
+            </button>
+
+            <button onclick="pauseTimer()">
+                PAUSE
+            </button>
+
+            <button onclick="resetTimer()">
+                RESET
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     BMI
+     ============================== -->
+
+<section id="bmi">
+
+    <h2>BMI Calculator</h2>
+
+    <div class="calculator">
+
+        <div class="input-group">
+
+            <label>
+                Height (cm)
+            </label>
+
+            <input
+                type="number"
+                id="height"
+                placeholder="Example: 175"
+            >
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label>
+                Weight (kg)
+            </label>
+
+            <input
+                type="number"
+                id="weight"
+                placeholder="Example: 70"
+            >
+
+        </div>
+
+
+        <button onclick="calculateBMI()">
+            CALCULATE BMI
+        </button>
+
+
+        <div
+            id="bmiResult"
+            class="result-box"
+        >
+            Enter your details to calculate BMI.
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     PERSONAL GOALS
+     ============================== -->
+
+<section id="goals">
+
+    <h2>Personal Goals</h2>
+
+    <div class="goals-container">
+
+        <div class="goal-form">
+
+            <h3>
+                Set Your Fitness Goal
+            </h3>
+
+            <input
+                type="text"
+                id="goalName"
+                placeholder="Goal name"
+            >
+
+
+            <select id="goalType">
+
+                <option value="">
+                    Select goal type
+                </option>
+
+                <option value="Weight Loss">
+                    Weight Loss
+                </option>
+
+                <option value="Muscle Gain">
+                    Muscle Gain
+                </option>
+
+                <option value="Strength">
+                    Strength
+                </option>
+
+                <option value="Endurance">
+                    Endurance
+                </option>
+
+                <option value="General Fitness">
+                    General Fitness
+                </option>
+
+            </select>
+
+
+            <input
+                type="number"
+                id="goalTarget"
+                placeholder="Target value"
+            >
+
+
+            <input
+                type="number"
+                id="goalCurrent"
+                placeholder="Current value"
+            >
+
+
+            <button onclick="saveGoal()">
+                SAVE GOAL
+            </button>
+
+        </div>
+
+
+        <div class="goal-display">
+
+            <h3>
+                Your Current Goal
+            </h3>
+
+            <div id="goalCard">
+
+                <div class="no-goal">
+                    🎯
+                    <p>
+                        No goal set yet.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     CALORIE CALCULATOR
+     ============================== -->
+
+<section id="calories">
+
+    <h2>Daily Calorie Calculator</h2>
+
+    <div class="goal-calculator">
+
+        <input
+            type="number"
+            id="age"
+            placeholder="Age"
+        >
+
+
+        <select id="gender">
+
+            <option value="">
+                Select Gender
+            </option>
+
+            <option value="male">
+                Male
+            </option>
+
+            <option value="female">
+                Female
+            </option>
+
+        </select>
+
+
+        <input
+            type="number"
+            id="calorieHeight"
+            placeholder="Height (cm)"
+        >
+
+
+        <input
+            type="number"
+            id="calorieWeight"
+            placeholder="Weight (kg)"
+        >
+
+
+        <select id="activity">
+
+            <option value="">
+                Activity Level
+            </option>
+
+            <option value="1.2">
+                Sedentary
+            </option>
+
+            <option value="1.375">
+                Lightly Active
+            </option>
+
+            <option value="1.55">
+                Moderately Active
+            </option>
+
+            <option value="1.725">
+                Very Active
+            </option>
+
+            <option value="1.9">
+                Extremely Active
+            </option>
+
+        </select>
+
+
+        <button onclick="calculateCalories()">
+            CALCULATE CALORIES
+        </button>
+
+
+        <div id="calorieResult">
+            Enter your details.
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     DASHBOARD
+     ============================== -->
+
+<section id="dashboard">
+
+    <h2>Your Dashboard</h2>
+
+
+    <div class="dashboard-container">
+
+
+        <div class="dashboard-card">
+
+            <div class="dashboard-icon">
+                ⚖️
+            </div>
+
+            <h3>BMI</h3>
+
+            <p id="dashboardBMI">
+                --
+            </p>
+
+            <span>
+                Current BMI
+            </span>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+            <div class="dashboard-icon">
+                🔥
+            </div>
+
+            <h3>Calories</h3>
+
+            <p id="dashboardCalories">
+                --
+            </p>
+
+            <span>
+                Daily target
+            </span>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+            <div class="dashboard-icon">
+                🏋️
+            </div>
+
+            <h3>Exercises</h3>
+
+            <p id="dashboardWorkouts">
+                0
+            </p>
+
+            <span>
+                Completed
+            </span>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+            <div class="dashboard-icon">
+                🔥
+            </div>
+
+            <h3>Streak</h3>
+
+            <p id="dashboardStreak">
+                🔥 0
+            </p>
+
+            <span>
+                Days active
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     WEEKLY PROGRESS
+     ============================== -->
+
+<section id="weeklyProgress">
+
+    <h2>Weekly Activity</h2>
+
+    <div class="weekly-container">
+
+        <p>
+            Your workout activity over the last 7 days
+        </p>
+
+        <div
+            id="weeklyDays"
+            class="weekly-days"
+        ></div>
+
+
+        <div class="weekly-summary">
+
+            <span id="weeklyCount">
+                0 / 7 days active
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     PROGRESS
+     ============================== -->
+
+<section id="progress">
+
+    <h2>Your Progress</h2>
+
+
+    <div class="progress-card">
+
+        <div class="progress-icon">
+            📈
+        </div>
+
+        <h3>
+            Exercises Completed
+        </h3>
+
+        <p id="exerciseCount">
+            0
+        </p>
+
+    </div>
+
+
+    <div class="progress-chart-card">
+
+        <h3>
+            7-Day Workout Progress
+        </h3>
+
+        <div
+            id="progressChart"
+            class="progress-chart"
+        ></div>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     PROFILE MODAL
+     ============================== -->
+
+<div
+    id="profileModal"
+    class="modal"
+>
+
+    <div class="modal-content">
+
+        <button
+            class="close-modal"
+            onclick="closeProfile()"
+        >
+            ×
+        </button>
+
+
+        <div class="profile-avatar">
+            👤
+        </div>
+
+
+        <h2>
+            My Profile
+        </h2>
+
+
+        <div class="profile-info">
+
+            <label>
+                Name
+            </label>
+
+            <input
+                type="text"
+                id="profileName"
+                placeholder="Your name"
+            >
+
+
+            <label>
+                Email
+            </label>
+
+            <input
+                type="email"
+                id="profileEmail"
+                placeholder="Your email"
+            >
+
+
+            <label>
+                Fitness Level
+            </label>
+
+            <select id="profileLevel">
+
+                <option value="Beginner">
+                    Beginner
+                </option>
+
+                <option value="Intermediate">
+                    Intermediate
+                </option>
+
+                <option value="Advanced">
+                    Advanced
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <button
+            class="save-profile-btn"
+            onclick="saveProfile()"
+        >
+            SAVE PROFILE
+        </button>
+
+
+        <button
+            class="logout-btn"
+            onclick="logoutUser()"
+        >
+            LOGOUT
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ==============================
+     LOGIN MODAL
+     ============================== -->
+
+<div
+    id="loginModal"
+    class="modal"
+>
+
+    <div class="modal-content login-content">
+
+        <div class="login-logo">
+            FitTrack
+        </div>
+
+        <h2>
+            Welcome Back
+        </h2>
+
+        <p>
+            Login to continue your fitness journey.
+        </p>
+
+
+        <input
+            type="text"
+            id="loginName"
+            placeholder="Your name"
+        >
+
+
+        <input
+            type="email"
+            id="loginEmail"
+            placeholder="Email"
+        >
+
+
+        <input
+            type="password"
+            id="loginPassword"
+            placeholder="Password"
+        >
+
+
+        <button onclick="loginUser()">
+            LOGIN / CREATE ACCOUNT
+        </button>
+
+
+        <small>
+            Demo frontend login — no real server authentication.
+        </small>
+
+    </div>
+
+</div>
+
+
+<!-- ==============================
+     FOOTER
+     ============================== -->
+
+<footer>
+
+    <h3>
+        FitTrack
+    </h3>
+
+    <p>
+        Build your stronger self.
+    </p>
+
+    <p class="footer-copy">
+        © 2026 FitTrack. All rights reserved.
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
